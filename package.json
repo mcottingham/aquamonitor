@@ -1,14 +1,14 @@
 {
-  "name": "electron-quick-start",
+  "name": "aquamonitor",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Aquamonitor (Electron)",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atom/electron-quick-start.git"
+    "url": "git@github.com:/mcottingham/aquamonitor"
   },
   "keywords": [
     "Electron",
@@ -16,13 +16,16 @@
     "start",
     "tutorial"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Mike Cottingham <mike@mikecottingham.ca>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/atom/electron-quick-start/issues"
+    "url": "https://github.com/mcottingham/aquamonitor/issues"
   },
-  "homepage": "https://github.com/atom/electron-quick-start#readme",
+  "homepage": "https://github.com/mcottingham/aquamonitor#readme",
   "devDependencies": {
     "electron-prebuilt": "^0.36.0"
+  },
+  "dependencies": {
+    "bower": "^1.7.7"
   }
 }

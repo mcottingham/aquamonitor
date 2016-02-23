@@ -1,0 +1,29 @@
+{
+  "name": "aquamonitor",
+  "description": "Aquamonitor (Electron)",
+  "main": "main.js",
+  "authors": [
+    "Mike Cottingham <mike@mikecottingham.ca>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular": "~1.5.0",
+    "angular-ui-router": "~0.2.18"
+  }
+}
