@@ -60,7 +60,7 @@
     ComponentsFactory.prototype.getSumpReturn = function(container) {
       var sumpReturn = container.append('path')
         .attr('class', 'sump-return')
-        .attr('d', 'M0 10 L0 0 L10 0 L10 300');
+        .attr('d', 'M0 20 L0 0 L10 0 L10 290');
 
       return sumpReturn;
     };

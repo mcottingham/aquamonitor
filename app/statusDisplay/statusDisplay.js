@@ -1,32 +1,32 @@
 (function() {
   'use strict';
 
-  function StatusDisplay(_d3, ComponentsFactory) {
-    var componentsFactory = new ComponentsFactory();
+  function StatusDisplay(_d3, ComponentsFactory, StatusDisplayLayoutFactory) {
 
     function StatusDisplayController() {
-      console.log('here');
     }
 
     function StatusDisplayLink(scope, elem, attr, ngModelCtrl) {
       ngModelCtrl.$render = draw;
 
       function draw() {
-        var systemStatus = ngModelCtrl.$modelValue;
         angular.element(elem[0]).empty();
-        var svg = _d3.select(elem[0])
-                .append('svg:svg')
-                .append('svg:g');
 
+        var componentsFactory = new ComponentsFactory();
+        var systemStatus = ngModelCtrl.$modelValue;
 
-        var defs = svg.insert('svg:defs', 'g');
+        var svg = _d3.select(elem[0]).append('svg:svg');
+        var componentsContainer = svg.append('svg:g');
 
-        var aquarium = componentsFactory.getAquarium(svg);
-        var sump = componentsFactory.getSump(svg);
-        var lights = componentsFactory.getLights(svg, systemStatus.lights);
-        var pump = componentsFactory.getPump(svg, systemStatus.pump);
-        var aquariumReturn = componentsFactory.getAquariumReturn(svg);
-        var sumpReturn = componentsFactory.getSumpReturn(svg);
+        var aquarium = componentsFactory.getAquarium(componentsContainer);
+        var sump = componentsFactory.getSump(componentsContainer);
+        var lights = componentsFactory.getLights(componentsContainer, systemStatus.lights);
+        var pump = componentsFactory.getPump(componentsContainer, systemStatus.pump);
+        var aquariumReturn = componentsFactory.getAquariumReturn(componentsContainer);
+        var sumpReturn = componentsFactory.getSumpReturn(componentsContainer);
+
+        var statusDisplayLayoutFactory = new StatusDisplayLayoutFactory(aquarium, sump, lights, pump, aquariumReturn, sumpReturn);
+        statusDisplayLayoutFactory.layout(svg);
       }
     }
 
