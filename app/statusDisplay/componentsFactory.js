@@ -5,21 +5,37 @@
     }
 
     ComponentsFactory.prototype.getAquarium = function(container) {
-      var aquarium = container.append('rect')
+      var aquariumGroup = container.append('g');
+
+      var aquarium = aquariumGroup.append('rect')
         .attr('width', '485')
         .attr('height', '110')
         .attr('class', 'aquarium');
 
-      return aquarium;
+      var waterLevel = aquariumGroup.append('rect')
+        .attr('class', 'water')
+        .attr('width', '485')
+        .attr('height', '91')
+        .attr('y', '18');
+
+      return aquariumGroup;
     };
 
     ComponentsFactory.prototype.getSump = function(container) {
-      var sump = container.append('rect')
+      var sumpGroup = container.append('g');
+
+      var sump = sumpGroup.append('rect')
         .attr('width', '200')
         .attr('height', 60)
         .attr('class', 'sump');
 
-      return sump;
+      var waterLevel = sumpGroup.append('rect')
+        .attr('class', 'water')
+        .attr('width', '200')
+        .attr('height', 50)
+        .attr('y', 10);
+
+      return sumpGroup;
     };
 
     ComponentsFactory.prototype.getLights = function(container, illuminated) {
@@ -52,7 +68,7 @@
     ComponentsFactory.prototype.getAquariumReturn = function(container) {
       var aquariumReturn = container.append('path')
         .attr('class', 'aquarium-return')
-        .attr('d', 'M0 25 L0 110 L10 110 L10 10 M10 110 L20 110 L20 0 M20 95 L30 95 L30 300');
+        .attr('d', 'M0 25 L0 110 L10 110 L10 10 M10 110 L20 110 L20 0 M20 95 L30 95 L30 270');
 
       return aquariumReturn;
     };
