@@ -7,14 +7,13 @@
     }
 
     function StatusDisplayLink(scope, elem, attr, ngModelCtrl) {
+      var componentsFactory = new ComponentsFactory();
       ngModelCtrl.$render = draw;
 
       function draw() {
         angular.element(elem[0]).empty();
 
-        var componentsFactory = new ComponentsFactory();
         var systemStatus = ngModelCtrl.$modelValue;
-
         var svg = _d3.select(elem[0]).append('svg:svg');
         var componentsContainer = svg.append('svg:g');
 
