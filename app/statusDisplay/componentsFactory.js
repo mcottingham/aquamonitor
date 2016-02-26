@@ -49,7 +49,13 @@
 
     ComponentsFactory.prototype.getLights = function(container, illuminated) {
       var lights = container.append('path')
-        .attr('d', 'M0 0 H485')
+        .attr('d', function() {
+            var path = '';
+            for(var i=48; i<480; i+=48) {
+                path += 'M' + i + ' 0 h25 ';
+            }
+            return path;
+        })
         .attr('class', function() {
           return 'lights ' + (illuminated ? 'on' : 'off');
         });
@@ -79,12 +85,12 @@
 
       var aquariumReturn = returnGroup.append('path')
         .attr('class', 'aquarium-return')
-        .attr('d', 'M0 25 L0 110 L10 110 L10 10 M10 110 L20 110 L20 0 M20 95 L30 95 L30 192');
+        .attr('d', 'M0 25 v80 h7 v-115 M8 80 h7 v115');
 
       var text = returnGroup.append('text')
         .text(this.$filter('flowRate')(flowRate))
         .attr('class', 'measurement')
-        .attr('x', '40')
+        .attr('x', '25')
         .attr('y', '160');
 
       return returnGroup;

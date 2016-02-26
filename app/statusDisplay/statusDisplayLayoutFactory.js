@@ -22,9 +22,9 @@
       //TODO: Scale elements size when the screen size hits a minimum size
       this.aquarium.attr('transform', 'translate(142.5,20)');
       this.sump.attr('transform', 'translate(170, 200)');
-      this.lights.attr('transform', 'translate(142.5, 15)');
+      this.lights.attr('transform', 'translate(142.5, 3)');
       this.pump.attr('transform', 'translate(320, 230)');
-      this.aquariumReturn.attr('transform', 'translate(160, 15)');
+      this.aquariumReturn.attr('transform', 'translate(170, 15)');
       this.sumpReturn.attr('transform', 'translate(350, 15)');
     }
 
