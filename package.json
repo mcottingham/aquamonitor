@@ -26,6 +26,7 @@
     "electron-prebuilt": "^0.36.0"
   },
   "dependencies": {
-    "bower": "^1.7.7"
+    "bower": "^1.7.7",
+    "d3": "^3.5.16"
   }
 }
