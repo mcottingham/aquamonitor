@@ -15,14 +15,13 @@
 
       var text = aquariumGroup.append('text')
         .text(this.$filter('temperature')(temperature))
+        .attr('class', 'measurement')
         .attr('x', '380')
         .attr('y', '90');
 
-      var waterLevel = aquariumGroup.append('rect')
-        .attr('class', 'water')
-        .attr('width', '485')
-        .attr('height', '91')
-        .attr('y', '18');
+        var waterLevel = aquariumGroup.append('path')
+          .attr('class', 'water')
+          .attr('d', 'M0 17 H485');
 
       return aquariumGroup;
     };
@@ -37,14 +36,13 @@
 
       var text = sumpGroup.append('text')
         .text(this.$filter('temperature')(temperature))
+        .attr('class', 'measurement')
         .attr('x', '25')
         .attr('y', '40');
 
-      var waterLevel = sumpGroup.append('rect')
+      var waterLevel = sumpGroup.append('path')
         .attr('class', 'water')
-        .attr('width', '200')
-        .attr('height', 50)
-        .attr('y', 10);
+        .attr('d', 'M0 15 H200');
 
       return sumpGroup;
     };
@@ -81,12 +79,13 @@
 
       var aquariumReturn = returnGroup.append('path')
         .attr('class', 'aquarium-return')
-        .attr('d', 'M0 25 L0 110 L10 110 L10 10 M10 110 L20 110 L20 0 M20 95 L30 95 L30 270');
+        .attr('d', 'M0 25 L0 110 L10 110 L10 10 M10 110 L20 110 L20 0 M20 95 L30 95 L30 192');
 
       var text = returnGroup.append('text')
         .text(this.$filter('flowRate')(flowRate))
+        .attr('class', 'measurement')
         .attr('x', '40')
-        .attr('y', '175');
+        .attr('y', '160');
 
       return returnGroup;
     };
@@ -96,12 +95,13 @@
 
       var sumpReturn = returnGroup.append('path')
         .attr('class', 'sump-return')
-        .attr('d', 'M0 20 L0 0 L10 0 L10 290');
+        .attr('d', 'M0 20 L0 0 L10 0 L10 217');
 
       var text = returnGroup.append('text')
         .text(this.$filter('flowRate')(flowRate))
+        .attr('class', 'measurement')
         .attr('x', '20')
-        .attr('y', '175');
+        .attr('y', '160');
 
       return returnGroup;
     };
