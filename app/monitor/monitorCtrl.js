@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function MonitorCtrl() {
+  function MonitorCtrl($timeout) {
     this.systemStatus = {
       sumpProbe: 17936,
       aquariumProbe: 18250,

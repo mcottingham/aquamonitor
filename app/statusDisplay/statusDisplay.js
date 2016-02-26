@@ -8,7 +8,10 @@
 
     function StatusDisplayLink(scope, elem, attr, ngModelCtrl) {
       var componentsFactory = new ComponentsFactory();
-      ngModelCtrl.$render = draw;
+
+      scope.$watch(function() {
+        return ngModelCtrl.$modelValue;
+      }, draw, true);
 
       function draw() {
         angular.element(elem[0]).empty();
