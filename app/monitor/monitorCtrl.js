@@ -5,6 +5,6 @@
     console.log('here');
   }
 
-  angular.module('aquamonitor')
+  angular.module('aquamonitor.core')
     .controller('monitorCtrl', MonitorCtrl);
 })();
