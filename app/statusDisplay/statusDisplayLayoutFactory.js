@@ -17,6 +17,9 @@
 
     StatusDisplayLayoutFactory.prototype.layout = function(container) {
       var containerDimensions = this.getDimensions(container);
+
+      //TODO: Calculate the positions of these elements based on the size of the screen
+      //TODO: Scale elements size when the screen size hits a minimum size
       this.aquarium.attr('transform', 'translate(142.5,20)');
       this.sump.attr('transform', 'translate(170, 275)');
       this.lights.attr('transform', 'translate(142.5, 15)');
