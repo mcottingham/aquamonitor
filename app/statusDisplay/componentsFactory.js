@@ -1,16 +1,22 @@
 (function() {
-  function factory(_d3) {
+  function factory(_d3, $filter) {
     function ComponentsFactory() {
       this.d3 = _d3;
+      this.$filter = $filter;
     }
 
-    ComponentsFactory.prototype.getAquarium = function(container) {
+    ComponentsFactory.prototype.getAquarium = function(container, temperature) {
       var aquariumGroup = container.append('g');
 
       var aquarium = aquariumGroup.append('rect')
         .attr('width', '485')
         .attr('height', '110')
         .attr('class', 'aquarium');
+
+      var text = aquariumGroup.append('text')
+        .text(this.$filter('temperature')(temperature))
+        .attr('x', '380')
+        .attr('y', '90');
 
       var waterLevel = aquariumGroup.append('rect')
         .attr('class', 'water')
@@ -21,13 +27,18 @@
       return aquariumGroup;
     };
 
-    ComponentsFactory.prototype.getSump = function(container) {
+    ComponentsFactory.prototype.getSump = function(container, temperature) {
       var sumpGroup = container.append('g');
 
       var sump = sumpGroup.append('rect')
         .attr('width', '200')
         .attr('height', 60)
         .attr('class', 'sump');
+
+      var text = sumpGroup.append('text')
+        .text(this.$filter('temperature')(temperature))
+        .attr('x', '25')
+        .attr('y', '40');
 
       var waterLevel = sumpGroup.append('rect')
         .attr('class', 'water')
@@ -65,20 +76,34 @@
       return pump;
     };
 
-    ComponentsFactory.prototype.getAquariumReturn = function(container) {
-      var aquariumReturn = container.append('path')
+    ComponentsFactory.prototype.getAquariumReturn = function(container, flowRate) {
+      var returnGroup = container.append('g');
+
+      var aquariumReturn = returnGroup.append('path')
         .attr('class', 'aquarium-return')
         .attr('d', 'M0 25 L0 110 L10 110 L10 10 M10 110 L20 110 L20 0 M20 95 L30 95 L30 270');
 
-      return aquariumReturn;
+      var text = returnGroup.append('text')
+        .text(this.$filter('flowRate')(flowRate))
+        .attr('x', '40')
+        .attr('y', '175');
+
+      return returnGroup;
     };
 
-    ComponentsFactory.prototype.getSumpReturn = function(container) {
-      var sumpReturn = container.append('path')
+    ComponentsFactory.prototype.getSumpReturn = function(container, flowRate) {
+      var returnGroup = container.append('g');
+
+      var sumpReturn = returnGroup.append('path')
         .attr('class', 'sump-return')
         .attr('d', 'M0 20 L0 0 L10 0 L10 290');
 
-      return sumpReturn;
+      var text = returnGroup.append('text')
+        .text(this.$filter('flowRate')(flowRate))
+        .attr('x', '20')
+        .attr('y', '175');
+
+      return returnGroup;
     };
 
     return ComponentsFactory;

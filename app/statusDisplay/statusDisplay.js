@@ -20,12 +20,12 @@
         var svg = _d3.select(elem[0]).append('svg:svg');
         var componentsContainer = svg.append('svg:g');
 
-        var aquarium = componentsFactory.getAquarium(componentsContainer);
-        var sump = componentsFactory.getSump(componentsContainer);
+        var aquarium = componentsFactory.getAquarium(componentsContainer, systemStatus.aquariumProbe);
+        var sump = componentsFactory.getSump(componentsContainer, systemStatus.sumpProbe);
         var lights = componentsFactory.getLights(componentsContainer, systemStatus.lights);
         var pump = componentsFactory.getPump(componentsContainer, systemStatus.pump);
-        var aquariumReturn = componentsFactory.getAquariumReturn(componentsContainer);
-        var sumpReturn = componentsFactory.getSumpReturn(componentsContainer);
+        var aquariumReturn = componentsFactory.getAquariumReturn(componentsContainer, systemStatus.aquariumReturn);
+        var sumpReturn = componentsFactory.getSumpReturn(componentsContainer, systemStatus.sumpReturn);
 
         var statusDisplayLayoutFactory = new StatusDisplayLayoutFactory(aquarium, sump, lights, pump, aquariumReturn, sumpReturn);
         statusDisplayLayoutFactory.layout(svg);
