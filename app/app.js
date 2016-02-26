@@ -3,7 +3,8 @@
 
   angular.module('aquamonitor', ['ui.router', 'aquamonitor.core'])
     .config(config)
-    .run(run);
+    .run(run)
+    .constant('_d3', d3);
 
   function config($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.when('', '/monitor');

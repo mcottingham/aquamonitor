@@ -1,0 +1,52 @@
+.status-display {
+  svg {
+    height: 100%;
+    width: 100%;
+
+    .aquarium,
+    .sump {
+      fill: none;
+      stroke-width: 1px;
+      stroke: #000;
+    }
+
+    .lights {
+      stroke-width: 3px;
+
+      &.on {
+        stroke: #FFFF00;
+      }
+
+      &.off {
+        stroke: #000;
+      }
+    }
+
+    .pump {
+      fill: none;
+      stroke-width: 3px;
+
+      &.on {
+        stroke: #00ff00;
+      }
+
+      &.off {
+        stroke: #ff0000;
+      }
+    }
+
+    .aquarium-return,
+    .sump-return {
+      fill: none;
+      stroke: #000;
+    }
+
+    .aquarium-return {
+      stroke-width: 5px;
+    }
+
+    .sump-return {
+      stroke-width: 3px;
+    }
+  }
+}
