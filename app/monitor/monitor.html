@@ -1,21 +1,52 @@
-<div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
       <status-display ng-model="monitorCtrl.systemStatus" class="status-display"/>
     </div>
   </div>
-  <div class="row">
-      <div class="col-sm-3">
-          <a href="#" class="btn btn-block btn-success"><i class="fa fa-lightbulb-o"></i> Lights</a>
-      </div>
-      <div class="col-sm-3">
-          <a href="#" class="btn btn-block btn-success"><i class="fa fa-spinner fa-spin"></i> Pump</a>
-      </div>
-      <div class="col-sm-3">
-          <a href="#" class="btn btn-block btn-success"><i class="fa fa-refresh"></i> Refresh</a>
-      </div>
-      <div class="col-sm-3">
-          <a href="#" class="btn btn-block btn-success"><i class="fa fa-power-off"></i> Sleep</a>
+  <div class="well controls">
+    <div class="row">
+      <div class="col-sm-4">
+          <a href="#"
+             class="btn"
+             ng-class="{'btn-success': monitorCtrl.systemStatus.lights, 'btn-info': !monitorCtrl.systemStatus.lights }"
+             ng-click="monitorCtrl.lightsClick()">
+             <i class="fa fa-lightbulb-o"></i> <br />Lights
+          </a>
+          <a href="#"
+             class="btn"
+             ng-class="{'btn-success': monitorCtrl.systemStatus.pump, 'btn-danger': !monitorCtrl.systemStatus.pump }"
+             ng-click="monitorCtrl.pumpClick()">
+             <i class="fa fa-refresh"
+                ng-class="{'fa-spin': monitorCtrl.systemStatus.pump }">
+             </i> <br />Pump
+          </a>
+          <a href="#"
+             class="btn"
+             ng-class="{'btn-success': monitorCtrl.systemStatus.bubbler, 'btn-info': !monitorCtrl.systemStatus.bubbler }"
+             ng-click="monitorCtrl.bubblerClick()">
+             <i class="fa fa-cloud">
+             </i> <br />Bubbler
+           </a>
+        </div>
+        <div class="col-sm-5">
+          <span class="label label-block"
+                ng-class="{'label-success': monitorCtrl.systemStatus.healthy, 'label-warning': !monitorCtrl.systemStatus.healthy }">
+                Health
+          </span>
+          <br />
+          <dl class="dl-horizontal">
+            <dt>Aquarium Temp</dt><dd><span class="label label-default">{{monitorCtrl.systemStatus.aquariumProbe | temperature }}</dd>
+            <dt>Sump Temp</dt><dd><span class="label label-default">{{monitorCtrl.systemStatus.sumpProbe | temperature }}</dd>
+            <dt>Aquarium Return Flow</dt><dd><span class="label label-default">{{monitorCtrl.systemStatus.aquariumReturn | flowRate }}</dd>
+            <dt>Sump Return Flow</dt><dd><span class="label label-default">{{monitorCtrl.systemStatus.sumpReturn | flowRate }}</dd>
+          </dl>
+        </div>
+        <div class="col-sm-3 text-right">
+          <a href="#"
+             class="btn btn-info">
+             <i class="fa fa-tint"></i>
+             <br /> Change
+          </a>
       </div>
   </div>
 </div>

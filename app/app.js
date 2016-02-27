@@ -7,6 +7,7 @@
         .constant('_d3', d3);
 
     function config($urlRouterProvider, $stateProvider) {
+        $urlRouterProvider.when('', '/');
         $urlRouterProvider.when('/', '/monitor');
 
         $stateProvider
