@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function factory() {
+  function factory($window) {
     function StatusDisplayLayoutFactory(aquarium, sump, lights, pump, aquariumReturn, sumpReturn) {
       this.aquarium = aquarium;
       this.sump = sump;
@@ -18,14 +18,14 @@
     StatusDisplayLayoutFactory.prototype.layout = function(container) {
       var containerDimensions = this.getDimensions(container);
 
-      //TODO: Calculate the positions of these elements based on the size of the screen
-      //TODO: Scale elements size when the screen size hits a minimum size
-      this.aquarium.attr('transform', 'translate(142.5,20)');
-      this.sump.attr('transform', 'translate(170, 200)');
-      this.lights.attr('transform', 'translate(142.5, 3)');
-      this.pump.attr('transform', 'translate(320, 230)');
-      this.aquariumReturn.attr('transform', 'translate(170, 15)');
-      this.sumpReturn.attr('transform', 'translate(350, 15)');
+      this.aquarium.attr('transform', 'translate(0,20)');
+      this.sump.attr('transform', 'translate(30, 200)');
+      this.lights.attr('transform', 'translate(0, 3)');
+      this.pump.attr('transform', 'translate(180, 230)');
+      this.aquariumReturn.attr('transform', 'translate(25, 15)');
+      this.sumpReturn.attr('transform', 'translate(210, 15)');
+
+      container.select('g').attr('transform', 'translate(' + ($window.innerWidth - containerDimensions.width)/2 + ', 0)');
     }
 
     return StatusDisplayLayoutFactory;
