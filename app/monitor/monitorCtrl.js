@@ -10,6 +10,7 @@
       pump: true,
       lights: true,
       bubbler: true,
+      filter: true,
       healthy: true
     };
   }
@@ -25,6 +26,10 @@
   MonitorCtrl.prototype.bubblerClick = function() {
     this.systemStatus.bubbler = !this.systemStatus.bubbler;
   };
+
+  MonitorCtrl.prototype.filterClick = function() {
+    this.systemStatus.filter = !this.systemStatus.filter;
+  }
 
   angular.module('aquamonitor.core')
     .controller('monitorCtrl', MonitorCtrl);
