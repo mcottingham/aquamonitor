@@ -20,6 +20,9 @@ function createWindow () {
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
 
+  mainWindow.setMenu(null);
+  // mainWindow.setFullScreen(true);  Will re-enable this on pi
+
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows
