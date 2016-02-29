@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 well text-center">
+      <h1><i class="fa fa-lock"></i></h1>
+      <p>Enter the passcode to continue</p>
+
+      <div class="row m-t-md m-b-md">
+        <div class="col-sm-12">
+          <input type="password" ng-model="lockCtrl.passcode" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row numpad">
+        <div class="col-sm-4" ng-repeat="digit in lockCtrl.digits">
+          <a class="btn btn-block btn-success text-center"
+             ng-click="lockCtrl.digitClick(digit)">
+             <span class="number">{{digit.number}}</span>
+             <span class="alpha">{{digit.alpha}}</span>
+           </a>
+        </div>
+
+        <div class="col-sm-4">
+          <a class="btn btn-block btn-success text-center"
+             ng-click="lockCtrl.resetPasscode()">
+             <span class="number"><i class="fa fa-ban"></i></span>
+             <span class="alpha">Clear</span>
+           </a>
+        </div>
+
+        <div class="col-sm-4 col-sm-offset-4">
+          <a class="btn btn-block btn-success text-center"
+             ng-click="lockCtrl.backspace()">
+             <span class="number"><i class="fa fa-caret-square-o-left"></i></span>
+             <span class="alpha">Bksp</span>
+           </a>
+        </div>
+      </div>
+
+      <div class="row">
+
+      </div>
+    </div>
+  </div>
+</div>
