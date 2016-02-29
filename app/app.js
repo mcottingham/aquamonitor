@@ -5,7 +5,8 @@
         .config(config)
         .run(run)
         .constant('_d3', d3)
-        .constant('_lodash', _);
+        .constant('_lodash', _)
+        .constant('_moment', moment);
 
     function config($urlRouterProvider, $stateProvider) {
         $urlRouterProvider.when('', '/');
@@ -44,6 +45,28 @@
                         controllerAs: 'monitorCtrl'
                     }
                 }
+            })
+            .state('root.app.config', {
+              url: 'config',
+              abstract: true,
+              views: {
+                'content@root': {
+                  templateUrl: 'app/layout/sideNavLayout.html'
+                }
+              }
+            })
+            .state('root.app.config.settings', {
+              url: 'settings',
+              views: {
+                'sideNav@root.app.config': {
+                  templateUrl: 'app/config/sideNav/sideNav.html'
+                },
+                'mainContent@root.app.config': {
+                  templateUrl: 'app/config/settings/settings.html',
+                  controller: 'settingsCtrl',
+                  controllerAs: 'settingsCtrl'
+                }
+              }
             });
     }
 
